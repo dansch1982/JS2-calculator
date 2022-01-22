@@ -18,8 +18,8 @@ $(document).on('keydown', function (event) {
     let key = event.key.toLowerCase()
     if (key === "enter") key = "="
     else if (key === "escape") key = "c"
-    else if (key === "backspace") {
-        $("#input").val($("#input").val().slice(0, -1)) // FIX THIS
+    else if (key === "backspace" && !$('#input').is(':focus')) {
+        $("#input").val($("#input").val().slice(0, -1))
         return cleanInput()
     }
 
