@@ -1,3 +1,77 @@
+@font-face {
+  font-family: "digital-7";
+  src: url("digital-7 (mono).ttf");
+}
+* {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 1rem;
+}
+
 body {
+  padding: 1rem;
+  margin: 0;
   background-color: antiquewhite;
+}
+body #calculator {
+  padding: 1.5rem;
+  border: 1px solid black;
+  border-radius: 0.5rem;
+  background: linear-gradient(#cccccc, #e6e6e6);
+  box-shadow: 3px 3px 5px 0px black;
+  margin: auto;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  display: grid;
+  grid-template-areas: "c c c b" "c c c b" "a a a b" "a a a b" "a a a b";
+}
+body #calculator #numbers {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(4, 2rem);
+  grid-area: a;
+}
+body #calculator #operators {
+  display: grid;
+  grid-template-rows: repeat(6, 2rem);
+  grid-area: b;
+}
+body #calculator #displays {
+  display: grid;
+  grid-template-rows: repeat(2, 2rem);
+  grid-area: c;
+}
+body #calculator #displays input {
+  outline: none;
+}
+
+button {
+  padding: 5px 10px;
+  width: 100%;
+  min-width: 5rem;
+  box-shadow: 2px 2px 3px 0px black;
+  border: 1px solid black;
+  outline: none;
+  background: linear-gradient(#e6e6e6, white);
+  z-index: 1;
+}
+button:hover {
+  background: linear-gradient(#cccccc, #e6e6e6);
+}
+input {
+  font-family: digital-7;
+  font-size: 1.5rem;
+  color: black;
+  background-color: whitesmoke;
+  border: 1px solid black;
+  box-shadow: 2px 2px 3px 0px black;
+  margin: 0;
+  padding: 5px 10px;
+  text-align: right;
+}
+
+.pressed, button:active {
+  transform: translateY(1px);
+  box-shadow: 1px 1px 1px 0px black;
+  z-index: 0;
 }/*# sourceMappingURL=style.css.map */
