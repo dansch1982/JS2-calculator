@@ -15,8 +15,14 @@ $("#input").keypress(function (event) {
     return (event.charCode >= 48 && event.charCode <= 57) || (event.charCode == 46 && !$("#input").val().includes("."))
 })
 $(document).on('keydown', function (event) {
-    $(':focus').blur();
     let key = event.key.toLowerCase()
+    let elementID;
+    if ($('#input').is(':focus')) {
+        elementID = "operators"
+    } else {
+        elementID = "calculator"
+        $(':focus').blur();
+    }
     if (key === "enter") key = "="
     else if (key === "escape") key = "c"
     else if (key === "backspace" && !$('#input').is(':focus')) {
@@ -24,12 +30,6 @@ $(document).on('keydown', function (event) {
         return cleanInput()
     }
 
-    let elementID;
-    if ($('#input').is(':focus')) {
-        elementID = "operators"
-    } else {
-        elementID = "calculator"
-    }
     $("#" + elementID).find("button").each(function () {
         if (this.textContent.toLowerCase() === key.toLowerCase()) {
             this.click()
