@@ -15,6 +15,7 @@ $("#input").keypress(function (event) {
     return (event.charCode >= 48 && event.charCode <= 57) || (event.charCode == 46 && !$("#input").val().includes("."))
 })
 $(document).on('keydown', function (event) {
+    $(':focus').blur();
     let key = event.key.toLowerCase()
     if (key === "enter") key = "="
     else if (key === "escape") key = "c"
@@ -49,7 +50,7 @@ function addInput(input) {
      */
     let string = $("#input").val()
     if (input === "+/-") {
-        string = string.startsWith("-") ? string.substring(1) : "-" + string
+        string = string - (string * 2)
     } else if (input === ".") {
         if (!string.includes(".")) {
             string += input
