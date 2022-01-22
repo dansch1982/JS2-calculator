@@ -41,8 +41,22 @@ body #calculator #displays {
   grid-template-rows: repeat(2, 2rem);
   grid-area: c;
 }
-body #calculator #displays input {
-  outline: none;
+body #calculator #displays article {
+  display: flex;
+  justify-content: right;
+}
+body #calculator #displays article span {
+  background: linear-gradient(#e6e6e6, white);
+  box-shadow: 2px 2px 3px 0px black;
+  background-color: whitesmoke;
+  font-size: small;
+  display: flex;
+  align-items: center;
+  justify-content: right;
+  text-transform: uppercase;
+  padding: 0 0.5rem;
+  width: 100%;
+  border: 1px solid black;
 }
 
 button {
@@ -66,6 +80,8 @@ input {
   border: 1px solid black;
   box-shadow: 2px 2px 3px 0px black;
   margin: 0;
+  width: 10rem;
+  outline: none;
   padding: 5px 10px;
   text-align: right;
 }
