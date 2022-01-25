@@ -8,9 +8,12 @@
 }
 
 body {
-  padding: 1rem;
+  display: flex;
+  justify-items: center;
+  padding: 2rem;
   margin: 0;
-  background-color: antiquewhite;
+  background: radial-gradient(circle, transparent 20%, #a89e92 20%, #a89e92 80%, transparent 80%, transparent), radial-gradient(circle, transparent 20%, #a89e92 20%, #a89e92 80%, transparent 80%, transparent) 20px 20px, linear-gradient(#4e483d 1.6px, transparent 1.6px) 0 -0.8px, linear-gradient(90deg, #4e483d 1.6px, #a89e92 1.6px) -0.8px 0;
+  background-size: 40px 40px, 40px 40px, 20px 20px, 20px 20px;
 }
 body #calculator {
   padding: 1.5rem;
