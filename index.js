@@ -145,9 +145,10 @@ function calcArray(array) {
 }
 
 function cleanInput() {
-    if ($("#input").val()[0] === "0" && $("#input").val().length > 1 && $("#input").val()[1] !== ".") {
-        $("#input").val($("#input").val().substring(1))
-    } else if (!$("#input").val()) {
+    const value = $("#input").val();
+    if (value[0] === "0" && value.length > 1 && value[1] !== ".") {
+        $("#input").val(value.substring(1))
+    } else if (!value) {
         $("#input").val("0")
     }
 }
