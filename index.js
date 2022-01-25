@@ -8,8 +8,11 @@ $("#operators").on('click', 'button', function () {
 $("#input").on('keyup', function () {
     cleanInput()
 })
-$("output").keypress(function () {
+$("#output").keypress(function () {
     return false
+})
+$("#output").on('click', function () {
+    this.select()
 })
 $("#input").keypress(function (event) {
     setTimeout(() => {
@@ -56,7 +59,7 @@ function addInput(input) {
      */
     let string = $("#input").val()
     if (input === "±") {
-        string = string - (string * 2)
+        string = string.startsWith("-") ? string.substring(1) : "-" + string
     } else if (input === ".") {
         if (!string.includes(".")) {
             string += input
