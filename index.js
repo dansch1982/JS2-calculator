@@ -5,8 +5,11 @@ $("#operators").on('click', 'button', function () {
     operate(this.textContent)
 });
 
-$("#input").on('keyup', function (event) {
+$("#input").on('keyup', function () {
     cleanInput()
+})
+$("output").keypress(function () {
+    return false
 })
 $("#input").keypress(function (event) {
     setTimeout(() => {
@@ -15,6 +18,9 @@ $("#input").keypress(function (event) {
     return (event.charCode >= 48 && event.charCode <= 57) || (event.charCode == 46 && !$("#input").val().includes("."))
 })
 $(document).on('keydown', function (event) {
+    if (event.ctrlKey) {
+        return
+    }
     let key = event.key.toLowerCase()
     let elementID;
     if ($('#input').is(':focus')) {
@@ -31,7 +37,7 @@ $(document).on('keydown', function (event) {
     }
 
     $("#" + elementID).find("button").each(function () {
-        if (this.textContent.toLowerCase() === key.toLowerCase()) {
+        if (this.textContent.toLowerCase().startsWith(key.toLowerCase())) {
             this.click()
             this.classList.toggle("pressed")
             setTimeout(() => {
@@ -49,7 +55,7 @@ function addInput(input) {
      * @type {String}
      */
     let string = $("#input").val()
-    if (input === "+/-") {
+    if (input === "±") {
         string = string - (string * 2)
     } else if (input === ".") {
         if (!string.includes(".")) {
@@ -72,7 +78,7 @@ function addInput(input) {
  */
 function operate(operator) {
     switch (operator) {
-        case "C":
+        case "Clear":
             $("#input").val("0")
             $("#output").val("")
             $("#output").removeAttr("list")
