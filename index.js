@@ -122,7 +122,7 @@ function calculate() {
  */
 function calcArray(array) {
     let operator;
-    if (array.length === 1) {
+    if (array.length <= 1) {
         return array[0]
     } else if (array.includes('*')) {
         operator = "*"
