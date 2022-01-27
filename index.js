@@ -120,18 +120,18 @@ function calculate() {
 /**
  * @param {Array} array
  */
-function calcArray(array) {
-    let operator;
+ function calcArray(array) {
+    let index;
     if (array.length <= 1) {
-        return array[0]
-    } else if (array.includes('*')) {
-        operator = "*"
-    } else if (array.includes('/')) {
-        operator = "/"
-    } else if (array.includes('+')) {
-        operator = "+"
-    } else if (array.includes('-')) {
-        operator = "-"
+        return array[0] ? parseFloat(array[0]) : NaN 
+    } else if (array.includes('*') || array.includes('/')) {
+        const firstIndex = array.indexOf("*")
+        const secondIndex = array.indexOf("/")
+        index = firstIndex < secondIndex ? firstIndex < 0 ? secondIndex : firstIndex : secondIndex < 0 ? firstIndex : secondIndex
+    } else if (array.includes('+') || array.includes('-')) {
+        const firstIndex = array.indexOf("+")
+        const secondIndex = array.indexOf("-")
+        index = firstIndex < secondIndex ? firstIndex < 0 ? secondIndex : firstIndex : secondIndex < 0 ? firstIndex : secondIndex
     }
     const operatorArray = {
         "*": (a, b) => {
@@ -147,7 +147,7 @@ function calcArray(array) {
             return a - b
         },
     }
-    const index = array.indexOf(operator)
+    const operator = array[index]
     const number = operatorArray[operator](parseFloat(array[index - 1]), parseFloat(array[index + 1]))
     array.splice(index - 1, 3, number)
     return calcArray(array)
