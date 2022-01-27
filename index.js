@@ -123,7 +123,7 @@ function calculate() {
  function calcArray(array) {
     let index;
     if (array.length <= 1) {
-        return array[0] ? parseFloat(array[0]) : NaN 
+        return parseFloat(array[0])
     } else if (array.includes('*') || array.includes('/')) {
         const firstIndex = array.indexOf("*")
         const secondIndex = array.indexOf("/")
