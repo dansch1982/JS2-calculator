@@ -72,7 +72,6 @@ function addInput(input) {
     } else {
         string += input
     }
-
     $("#input").val(string)
 }
 
